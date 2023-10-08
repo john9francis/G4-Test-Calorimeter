@@ -5,8 +5,9 @@
 #include "G4LogicalVolume.hh"
 
 namespace TC {
-	class DetectorConstruction : G4VUserDetectorConstruction {
-		DetectorConstruction();
+	class DetectorConstruction : public G4VUserDetectorConstruction {
+	public:
+		DetectorConstruction() = default;
 		~DetectorConstruction() = default;
 
 		G4VPhysicalVolume* Construct();

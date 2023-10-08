@@ -2,6 +2,10 @@
 #include "G4UIExecutive.hh"
 #include "G4RunManager.hh"
 
+#include "DetectorConstruction.hh"
+
+using namespace TC;
+
 int main(int argc, char** argv)
 {
 	// Start (or don't) a UI
@@ -15,6 +19,7 @@ int main(int argc, char** argv)
 
 	// Set required initialization classes
 	G4RunManager* runManager = new G4RunManager();
+	runManager->SetUserInitialization(new DetectorConstruction());
 
 	// Run macro or start UI
 	if (!ui) {
