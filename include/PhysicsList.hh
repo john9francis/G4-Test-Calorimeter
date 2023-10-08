@@ -1,10 +1,11 @@
 #ifndef TC_PHYSICS_LIST_HH 1
 #define TC_PHYSICS_LIST_HH
 
-#include "G4VUserPhysicsList.hh"
+#include "G4VModularPhysicsList.hh"
 
 namespace TC {
-	class PhysicsList : G4VUserPhysicsList {
+	class PhysicsList : public G4VModularPhysicsList {
+	public:
 		PhysicsList();
 		~PhysicsList() = default;
 

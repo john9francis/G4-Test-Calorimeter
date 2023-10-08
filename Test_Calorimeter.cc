@@ -6,6 +6,7 @@
 #include "G4VisExecutive.hh"
 
 #include "DetectorConstruction.hh"
+#include "PhysicsList.hh"
 
 using namespace TC;
 
@@ -23,6 +24,7 @@ int main(int argc, char** argv)
 	// Set required initialization classes
 	G4RunManager* runManager = new G4RunManager();
 	runManager->SetUserInitialization(new DetectorConstruction());
+	runManager->SetUserInitialization(new PhysicsList());
 
 	// set vismanager
 	G4VisManager* visManager = new G4VisExecutive;

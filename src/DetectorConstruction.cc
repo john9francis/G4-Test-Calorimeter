@@ -56,7 +56,7 @@ namespace TC {
             detPos,
             logicDetector,
             "Detector",
-            nullptr,
+            logicWorld,
             false,
             0);
 
