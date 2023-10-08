@@ -42,8 +42,8 @@ namespace TC {
         G4ThreeVector detPos = G4ThreeVector(0, 0, 5 * cm);
 
         auto solidDetector = new G4Box("Detector",
-            detXY / 2,
-            detXY / 2,
+            detXY,
+            detXY,
             detZ
         );
 
