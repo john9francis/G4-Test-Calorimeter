@@ -1,6 +1,7 @@
 #include "G4UImanager.hh"
 #include "G4UIExecutive.hh"
 #include "G4RunManager.hh"
+#include "G4RunManagerFactory.hh"
 
 #include "G4VisManager.hh"
 #include "G4VisExecutive.hh"
@@ -23,7 +24,7 @@ int main(int argc, char** argv)
 	G4UImanager* UImanager = G4UImanager::GetUIpointer();
 
 	// Set required initialization classes
-	G4RunManager* runManager = new G4RunManager();
+	auto* runManager = G4RunManagerFactory::CreateRunManager(G4RunManagerType::Default);
 	runManager->SetUserInitialization(new PhysicsList());
 	runManager->SetUserInitialization(new DetectorConstruction());
 	runManager->SetUserInitialization(new ActionInitialization());
