@@ -2,6 +2,9 @@
 #include "G4UIExecutive.hh"
 #include "G4RunManager.hh"
 
+#include "G4VisManager.hh"
+#include "G4VisExecutive.hh"
+
 #include "DetectorConstruction.hh"
 
 using namespace TC;
@@ -21,6 +24,10 @@ int main(int argc, char** argv)
 	G4RunManager* runManager = new G4RunManager();
 	runManager->SetUserInitialization(new DetectorConstruction());
 
+	// set vismanager
+	G4VisManager* visManager = new G4VisExecutive;
+	visManager->Initialize();
+
 	// Run macro or start UI
 	if (!ui) {
 		// batch mode
@@ -35,5 +42,6 @@ int main(int argc, char** argv)
 	}
 
 	delete runManager;
+	delete visManager;
 	return 0;
 }
