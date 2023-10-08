@@ -1,0 +1,7 @@
+.vs/
+.vscode/
+.devcontainer
+out/
+build/
+dockerbuild/
+docker_build/
