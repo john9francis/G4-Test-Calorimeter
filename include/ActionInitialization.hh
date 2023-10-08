@@ -4,12 +4,14 @@
 #include "G4VUserActionInitialization.hh"
 
 namespace TC {
-	class TCActionInitialization : G4VUserActionInitialization {
-		TCActionInitialization();
-		~ TCActionInitialization() = default;
+	class ActionInitialization : public G4VUserActionInitialization {
+	public:
+		ActionInitialization() = default;
+		~ActionInitialization() override = default;
 
-		void Build();
-		void BuildForMaster();
+	private:
+		void Build() const override;
+		void BuildForMaster() const override;
 	};
 }
 

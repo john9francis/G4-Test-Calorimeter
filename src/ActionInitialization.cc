@@ -1,12 +1,13 @@
 #include "ActionInitialization.hh"
-#include "DetectorConstruction.hh"
+
+#include "PrimaryGeneratorAction.hh"
 
 namespace TC {
-	void TCActionInitialization::Build() {
-
+	void ActionInitialization::Build() const {
+		SetUserAction(new PrimaryGeneratorAction());
 	}
 
-	void TCActionInitialization::BuildForMaster() {
+	void ActionInitialization::BuildForMaster() const {
 
 	}
 }

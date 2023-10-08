@@ -7,7 +7,7 @@
 
 #include "DetectorConstruction.hh"
 #include "PhysicsList.hh"
-#include "PrimaryGeneratorAction.hh"
+#include "ActionInitialization.hh"
 
 using namespace TC;
 
@@ -24,9 +24,9 @@ int main(int argc, char** argv)
 
 	// Set required initialization classes
 	G4RunManager* runManager = new G4RunManager();
-	runManager->SetUserInitialization(new DetectorConstruction());
 	runManager->SetUserInitialization(new PhysicsList());
-	runManager->SetUserAction(new PrimaryGeneratorAction());
+	runManager->SetUserInitialization(new DetectorConstruction());
+	runManager->SetUserInitialization(new ActionInitialization());
 
 	// set vismanager
 	G4VisManager* visManager = new G4VisExecutive;
