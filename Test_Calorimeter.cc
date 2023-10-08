@@ -1,5 +1,6 @@
 #include "G4UImanager.hh"
 #include "G4UIExecutive.hh"
+#include "G4RunManager.hh"
 
 int main(int argc, char** argv)
 {
@@ -11,6 +12,9 @@ int main(int argc, char** argv)
 
 	// get pointer to UI manager
 	G4UImanager* UImanager = G4UImanager::GetUIpointer();
+
+	// Set required initialization classes
+	G4RunManager* runManager = new G4RunManager();
 
 	// Run macro or start UI
 	if (!ui) {
@@ -25,5 +29,6 @@ int main(int argc, char** argv)
 		delete ui;
 	}
 
+	delete runManager;
 	return 0;
 }
