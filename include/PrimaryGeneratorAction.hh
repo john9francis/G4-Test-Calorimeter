@@ -2,13 +2,18 @@
 #define TC_PRIMARY_GEN_HH
 
 #include "G4VUserPrimaryGeneratorAction.hh"
+#include "G4ParticleGun.hh"
 
 namespace TC {
-	class PrimaryGeneratorAction : G4VUserPrimaryGeneratorAction {
+	class PrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction {
+	public:
 		PrimaryGeneratorAction();
-		~PrimaryGeneratorAction() = default;
+		~PrimaryGeneratorAction();
 
-		void GeneratePrimaries();
+		void GeneratePrimaries(G4Event*);
+
+	private:
+		G4ParticleGun* fParticleGun;
 	};
 }
 #endif // !TC_PRIMARY_GEN_HH 1
