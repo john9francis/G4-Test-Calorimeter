@@ -8,10 +8,10 @@ namespace TC {
 	}
 
 	void PhysicsList::ConstructParticle() {
-
+		G4VModularPhysicsList::ConstructParticle();
 	}
 
 	void PhysicsList::ConstructProcess() {
-
+		G4VModularPhysicsList::ConstructProcess();
 	}
 }

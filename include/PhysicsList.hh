@@ -9,8 +9,8 @@ namespace TC {
 		PhysicsList();
 		~PhysicsList() = default;
 
-		void ConstructParticle();
-		void ConstructProcess();
+		virtual void ConstructParticle() override;
+		virtual void ConstructProcess() override;
 
 	};
 }
