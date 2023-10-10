@@ -59,11 +59,11 @@ namespace TC
 		fParticleGun->SetParticlePosition(position);
 
 		// randomize energy with a .127 MeV std:dev gaussean distribution
-		G4double meanEnergy = 6. * MeV;
-		G4double stdDev = .127 * MeV;
-		G4double energy = G4RandGauss::shoot(meanEnergy, stdDev);
-
-		fParticleGun->SetParticleEnergy(energy);
+		//G4double meanEnergy = 6. * MeV;
+		//G4double stdDev = .127 * MeV;
+		//G4double energy = G4RandGauss::shoot(meanEnergy, stdDev);
+		//
+		//fParticleGun->SetParticleEnergy(energy);
 
 
 		// satisfy "generate primaries" here.

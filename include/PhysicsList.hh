@@ -1,4 +1,4 @@
-#ifndef TC_PHYSICS_LIST_HH 1
+#ifndef TC_PHYSICS_LIST_HH
 #define TC_PHYSICS_LIST_HH
 
 #include "G4VModularPhysicsList.hh"
@@ -15,4 +15,4 @@ namespace TC {
 	};
 }
 
-#endif // !TC_PHYSICS_LIST_HH 1
+#endif // !TC_PHYSICS_LIST_HH

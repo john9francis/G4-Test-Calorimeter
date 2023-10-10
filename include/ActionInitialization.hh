@@ -1,4 +1,4 @@
-#ifndef TC_ACTION_INIT_HH 1
+#ifndef TC_ACTION_INIT_HH
 #define TC_ACTION_INIT_HH
 
 #include "G4VUserActionInitialization.hh"
@@ -15,4 +15,4 @@ namespace TC {
 	};
 }
 
-#endif // !TC_ACTION_INIT_HH 1
+#endif // !TC_ACTION_INIT_HH

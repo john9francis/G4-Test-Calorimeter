@@ -1,4 +1,4 @@
-#ifndef TC_DETECTOR_CONSTRUCTION_HH 1
+#ifndef TC_DETECTOR_CONSTRUCTION_HH
 #define TC_DETECTOR_CONSTRUCTION_HH
 
 #include "G4VUserDetectorConstruction.hh"
@@ -13,4 +13,4 @@ namespace TC {
 		G4VPhysicalVolume* Construct();
 	};
 }
-#endif // !TC_DETECTOR_CONSTRUCTION_HH 1
+#endif // !TC_DETECTOR_CONSTRUCTION_HH

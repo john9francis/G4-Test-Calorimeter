@@ -1,4 +1,4 @@
-#ifndef TC_PRIMARY_GEN_HH 1
+#ifndef TC_PRIMARY_GEN_HH
 #define TC_PRIMARY_GEN_HH
 
 #include "G4VUserPrimaryGeneratorAction.hh"
