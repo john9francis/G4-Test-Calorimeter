@@ -10,7 +10,8 @@ namespace TC {
 		DetectorConstruction() = default;
 		~DetectorConstruction() = default;
 
-		G4VPhysicalVolume* Construct();
+		G4VPhysicalVolume* Construct() override;
+		void ConstructSDandField() override;
 	};
 }
 #endif // !TC_DETECTOR_CONSTRUCTION_HH

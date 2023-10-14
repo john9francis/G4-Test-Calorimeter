@@ -53,10 +53,13 @@ namespace TC {
             "Detector"
         );
 
+        // MOVED THIS TO SDandField
         // Set my sensitive detector to this logic detector:
-        SensitiveDetector* SD = new SensitiveDetector("SD");
-
-        logicDetector->SetSensitiveDetector(SD);
+        //SensitiveDetector* SD = new SensitiveDetector("SD", "SDHitsCollection");
+        //
+        //G4SDManager::GetSDMpointer()->AddNewDetector(SD);
+        //
+        //logicDetector->SetSensitiveDetector(SD);
 
         auto physDetector = new G4PVPlacement(nullptr,
             detPos,
@@ -68,5 +71,15 @@ namespace TC {
 
 
         return physWorld;
+    }
+
+
+    void DetectorConstruction::ConstructSDandField() {
+        G4String SDname = "SD";
+        G4String HCname = "SDHitsCollection";
+        auto SD = new SensitiveDetector(SDname, HCname);
+        G4SDManager::GetSDMpointer()->AddNewDetector(SD);
+
+        SetSensitiveDetector("Detector", SD);
     }
 }

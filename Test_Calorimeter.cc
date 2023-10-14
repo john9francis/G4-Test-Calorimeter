@@ -5,6 +5,7 @@
 
 #include "G4VisManager.hh"
 #include "G4VisExecutive.hh"
+#include "G4SDManager.hh"
 
 #include "DetectorConstruction.hh"
 #include "PhysicsList.hh"
@@ -28,6 +29,8 @@ int main(int argc, char** argv)
 	runManager->SetUserInitialization(new PhysicsList());
 	runManager->SetUserInitialization(new DetectorConstruction());
 	runManager->SetUserInitialization(new ActionInitialization());
+
+	G4SDManager::GetSDMpointer()->SetVerboseLevel(1);
 
 	// set vismanager
 	G4VisManager* visManager = new G4VisExecutive;
