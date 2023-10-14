@@ -7,7 +7,6 @@ namespace TC {
 		: G4VSensitiveDetector(name) {
 		// Set the name of this sd
 		collectionName.insert(hitsCollectionName);
-		G4cout << "SD Construct" << G4endl; // this works!
 	}
 
 	void SensitiveDetector::Initialize(G4HCofThisEvent* hce) {
@@ -19,8 +18,6 @@ namespace TC {
 		G4int hcID = G4SDManager::GetSDMpointer()->GetCollectionID(collectionName[0]);
 
 		hce->AddHitsCollection(hcID, fHitsCollection);
-
-		G4cout << "SD Init" << G4endl;
 
 
 	}
@@ -36,8 +33,6 @@ namespace TC {
 
 		fHitsCollection->insert(hit);
 
-		G4cout << "SD Process" << G4endl;
-
 
 		return true;
 	}
@@ -46,9 +41,6 @@ namespace TC {
 		// print all the hits
 
 		G4int nofHits = fHitsCollection->entries();
-
-		G4cout << "SD End" << G4endl;
-
 
 		for (G4int i = 0; i < nofHits; i++) (*fHitsCollection)[i]->Print();
 	}

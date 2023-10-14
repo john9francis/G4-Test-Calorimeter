@@ -40,6 +40,7 @@ namespace TC {
         G4double detXY = 10. * cm;
         G4double detZ = 5. * cm;
         G4Material* lead = nist->FindOrBuildMaterial("G4_Pb");
+        G4Material* water = nist->FindOrBuildMaterial("G4_WATER");
         G4ThreeVector detPos = G4ThreeVector(0, 0, 5 * cm);
 
         auto solidDetector = new G4Box("Detector",
