@@ -1,4 +1,5 @@
 #include "DetectorConstruction.hh"
+#include "SensitiveDetector.hh"
 
 #include "G4Box.hh"
 #include "G4Tubs.hh"
@@ -51,6 +52,11 @@ namespace TC {
             lead,
             "Detector"
         );
+
+        // Set my sensitive detector to this logic detector:
+        SensitiveDetector* SD = new SensitiveDetector("SD");
+
+        logicDetector->SetSensitiveDetector(SD);
 
         auto physDetector = new G4PVPlacement(nullptr,
             detPos,
