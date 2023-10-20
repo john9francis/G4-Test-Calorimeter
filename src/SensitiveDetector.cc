@@ -23,7 +23,15 @@ namespace TC {
 	}
 
 	G4bool SensitiveDetector::ProcessHits(G4Step* aStep, G4TouchableHistory*) {
-		G4double energy = aStep->GetTotalEnergyDeposit();
+		
+		// Only log energy if it's the first step in volume
+		// Note: Returning true or false is only for our own purposes.
+		if (!aStep->IsFirstStepInVolume()) { return false; }
+
+
+		G4Track* track = aStep->GetTrack();
+		// G4double energy = track->GetKineticEnergy();
+		G4double energy = track->GetTotalEnergy();
 		G4ThreeVector position = aStep->GetPreStepPoint()->GetPosition();
 
 		TCHit* hit = new TCHit();

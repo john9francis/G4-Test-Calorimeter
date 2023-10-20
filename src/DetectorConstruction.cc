@@ -41,6 +41,9 @@ namespace TC {
         G4double detZ = 5. * cm;
         G4Material* lead = nist->FindOrBuildMaterial("G4_Pb");
         G4Material* water = nist->FindOrBuildMaterial("G4_WATER");
+        G4Material* tungsten = nist->FindOrBuildMaterial("G4_W");
+        G4Material* gold = nist->FindOrBuildMaterial("G4_Au");
+
         G4ThreeVector detPos = G4ThreeVector(0, 0, 5 * cm);
 
         auto solidDetector = new G4Box("Detector",
@@ -50,17 +53,10 @@ namespace TC {
         );
 
         auto logicDetector = new G4LogicalVolume(solidDetector,
-            lead,
+            vacuum,
             "Detector"
         );
 
-        // MOVED THIS TO SDandField
-        // Set my sensitive detector to this logic detector:
-        //SensitiveDetector* SD = new SensitiveDetector("SD", "SDHitsCollection");
-        //
-        //G4SDManager::GetSDMpointer()->AddNewDetector(SD);
-        //
-        //logicDetector->SetSensitiveDetector(SD);
 
         auto physDetector = new G4PVPlacement(nullptr,
             detPos,
