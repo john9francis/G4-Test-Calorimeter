@@ -2,13 +2,15 @@
 #include "RunAction.hh"
 #include "G4UnitsTable.hh"
 
+
 namespace TC {
 
 	RunAction::RunAction() {
-
+		//fHepRepFile = new G4HepRepFile;
 	}
 
 	RunAction::~RunAction() {
+		//delete fHepRepFile;
 
 	}
 

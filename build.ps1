@@ -11,7 +11,7 @@ msbuild Test_Calorimeter.sln
 cd release
 
 # Run the executable
-.\Test_Calorimeter interactive
+.\Test_Calorimeter
 
 # Go back to the root directory
 cd ..
