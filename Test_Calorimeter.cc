@@ -26,7 +26,7 @@ int main(int argc, char** argv)
 	else {
 		uiT = new G4UIterminal;
 	}
-
+	
 	// get pointer to UI manager
 	G4UImanager* UImanager = G4UImanager::GetUIpointer();
 
@@ -43,24 +43,7 @@ int main(int argc, char** argv)
 	G4VisManager* visManager = new G4VisExecutive;
 	visManager->Initialize();
 
-	/*
-	// Run macro or start UI
-	if (!ui) {
-		// batch mode
-		G4String command = "/control/execute ";
-		G4String fileName = argv[1];
-		UImanager->ApplyCommand(command + fileName);
-	}
-	else {
-		// run visualization
-		UImanager->ApplyCommand("/control/execute vis.mac");
-		 
-		// use UI
-		ui->SessionStart();
-		delete ui;
-	}
 
-	*/
 	if (ui) {
 
 		// Run visualization
