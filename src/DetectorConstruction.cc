@@ -10,17 +10,18 @@
 
 namespace TC {
     G4VPhysicalVolume* DetectorConstruction::Construct() {
+
         // Get nist material manager
         G4NistManager* nist = G4NistManager::Instance();
 
 
         // Start with constructing the world:
-        G4double worldSize = 1 * m;
+        G4double worldSize = 20 * cm;
         G4Material* vacuum = nist->FindOrBuildMaterial("G4_Galactic");
 
         auto solidWorld = new G4Box("World",
-            worldSize / 2,
-            worldSize / 2,
+            worldSize,
+            worldSize,
             worldSize);
 
         auto logicWorld = new G4LogicalVolume(solidWorld,
@@ -39,29 +40,33 @@ namespace TC {
         // create our detector
         G4double detXY = 10. * cm;
         G4double detZ = 5. * cm;
+
+        // different material options to test out
         G4Material* lead = nist->FindOrBuildMaterial("G4_Pb");
         G4Material* water = nist->FindOrBuildMaterial("G4_WATER");
         G4Material* tungsten = nist->FindOrBuildMaterial("G4_W");
         G4Material* gold = nist->FindOrBuildMaterial("G4_Au");
 
+        G4Material* detectorMat = vacuum;
+
         G4ThreeVector detPos = G4ThreeVector(0, 0, 5 * cm);
 
-        auto solidDetector = new G4Box("Detector",
+        auto solidDetector = new G4Box("SolidDetector",
             detXY,
             detXY,
             detZ
         );
 
         auto logicDetector = new G4LogicalVolume(solidDetector,
-            vacuum,
-            "Detector"
+            detectorMat,
+            "LogicDetector"
         );
 
 
         auto physDetector = new G4PVPlacement(nullptr,
             detPos,
             logicDetector,
-            "Detector",
+            "PhysDetector",
             logicWorld,
             false,
             0);
@@ -72,11 +77,20 @@ namespace TC {
 
 
     void DetectorConstruction::ConstructSDandField() {
+
+        // Add our sensitive detector to the detector of our choice
+
+        // Name our SD and our hitsCollection
         G4String SDname = "SD";
         G4String HCname = "SDHitsCollection";
+
+        // Create our SD
         auto SD = new SensitiveDetector(SDname, HCname);
+
+        // Add it to the SDManager Singleton
         G4SDManager::GetSDMpointer()->AddNewDetector(SD);
 
-        SetSensitiveDetector("Detector", SD);
+        // Assign SD to the volume we want
+        SetSensitiveDetector("LogicDetector", SD);
     }
 }
