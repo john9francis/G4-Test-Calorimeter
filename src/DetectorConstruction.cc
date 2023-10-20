@@ -39,7 +39,7 @@ namespace TC {
 
         // create our detector
         G4double detXY = 10. * cm;
-        G4double detZ = 5. * cm;
+        G4double detZ = 1. * nm;
 
         // different material options to test out
         G4Material* lead = nist->FindOrBuildMaterial("G4_Pb");
