@@ -4,6 +4,8 @@
 
 namespace TC {
 	PhysicsList::PhysicsList() {
+
+		// Register the physics we need
 		RegisterPhysics(new G4EmStandardPhysics());
 	}
 
