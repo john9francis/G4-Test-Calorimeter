@@ -41,12 +41,6 @@ namespace TC {
         G4double detXY = 10. * cm;
         G4double detZ = 1. * nm;
 
-        // different material options to test out
-        G4Material* lead = nist->FindOrBuildMaterial("G4_Pb");
-        G4Material* water = nist->FindOrBuildMaterial("G4_WATER");
-        G4Material* tungsten = nist->FindOrBuildMaterial("G4_W");
-        G4Material* gold = nist->FindOrBuildMaterial("G4_Au");
-
         G4Material* detectorMat = vacuum;
 
         G4ThreeVector detPos = G4ThreeVector(0, 0, 5 * cm);
